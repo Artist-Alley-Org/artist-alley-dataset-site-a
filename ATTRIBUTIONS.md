@@ -82,7 +82,6 @@ the Pexels terms for the `videos/internet/pexels-*` files.
   - BoomBox — © Microsoft, CC0 1.0
   - Duck — © Sony Computer Entertainment Inc, CC-BY-SA 3.0
   - Lantern — © Microsoft, CC0 1.0
-  - Sponza — © Marko Dabrovic / Frank Meinl, CC-BY 3.0
   - WaterBottle — © Microsoft, CC0 1.0
   - BrainStem — © Keith Hunter / Smith Micro, CC0 1.0
   - CesiumMan — © Cesium, CC-BY 4.0

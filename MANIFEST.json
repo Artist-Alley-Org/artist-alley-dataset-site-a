@@ -60743,59 +60743,6 @@
   "mature": false
  },
  {
-  "id": "4d30ea15-aec9-f53a-647c-3d4034b9f3a2",
-  "asset_type": "3d",
-  "title": "Sponza - Khronos canonical scene",
-  "description": "Architectural test scene — most-used graphics benchmark",
-  "file_path": "3d/internet/Sponza.gltf",
-  "source_path": "3d/Sponza.gltf",
-  "source_root": "internet",
-  "file_extension": "gltf",
-  "file_size_bytes": 167176,
-  "sensitivity_tier": "public",
-  "archive_state": "active",
-  "owner_username": "seed.bot",
-  "collection_name": "Internet Reference",
-  "team_name": "Reference",
-  "brand_workspace": null,
-  "tags": [
-   "reference",
-   "public-domain",
-   "source:khronos-sample-models"
-  ],
-  "workflow_state": "approved",
-  "metadata": {
-   "filename": "Sponza.gltf",
-   "kind": "3d",
-   "license": "CC-BY 3.0",
-   "usage_rights": "All Use",
-   "acquisition_source": "Khronos Sample Models",
-   "attribution": "Marko Dabrovic / Frank Meinl | Khronos glTF Sample Models",
-   "group_id": "",
-   "sha256": "646c10cbc8fab990ca29f363e90e2d65155f3a3569506852eb1434a9465b9501"
-  },
-  "field_values": {
-   "production_area": "environment-props",
-   "country": "cn",
-   "keywords": [
-    "photograph",
-    "texture"
-   ],
-   "credit": "Aurora R&D / Archive"
-  },
-  "external_id": "",
-  "review_notes": null,
-  "reviewer_username": null,
-  "created_at": "2026-01-19T02:31:22Z",
-  "updated_at": "2026-01-19T02:31:22Z",
-  "last_reviewed_at": "2026-01-19T02:31:22Z",
-  "license": "CC-BY 3.0",
-  "attribution": "Marko Dabrovic / Frank Meinl | Khronos glTF Sample Models",
-  "layer": "A",
-  "studio": "shared",
-  "mature": false
- },
- {
   "id": "f7c409e9-f363-3b23-3c6c-3f494700806e",
   "asset_type": "3d",
   "title": "WaterBottle - Khronos PBR",
