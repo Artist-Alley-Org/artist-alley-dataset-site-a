@@ -1,0 +1,14 @@
+# This repository tracks metadata and tooling only. The six binary data
+# directories are present locally for building release archives, but are
+# never tracked in Git (ordinary or LFS). Consumers get the bytes from the
+# versioned, checksum-verified GitHub Release archives.
+/3d/
+/audio/
+/documents/
+/fonts/
+/images/
+/videos/
+
+# Source backups and OS thumbnail caches are never part of the snapshot.
+*.bak
+Thumbs.db
