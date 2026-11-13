@@ -1,0 +1,615 @@
+{
+  "schema": "artist-alley.dataset-edition/v1",
+  "edition": "v2026.11.01-sm",
+  "kind": "ci-subset",
+  "notice": "A byte-identical subset of edition v2026.11.01 for PR CI: the rows and files `aa seed --profile ci` selects, the site_a overlap anchors, and the selected rows' license notices. Its descriptive metadata describes this subset. Not rights clearance.",
+  "derived_from": {
+    "repo": "Artist-Alley-Org/artist-alley-dataset-site-a",
+    "tag": "v2026.11.01",
+    "commit": "62ebfa6a642f96ceda829ffdad42601d4d9fe525",
+    "release_json_sha256": "84996745cda978476dacfe7cf8ae1030d0d0d21faa7f1593e3aa713e0c092da5",
+    "sha256sums_sha256": "d496d58ebec8725f88445aa24ba3d1d95790206740ef92be011b86931de4e6cc",
+    "manifest_sha256": "4f80ad88bf121c51982dc03652c0885fb5c8602c11e193cf7377d03267fdd225",
+    "posts_sha256": "5c3f9dca5ad81196246a29e0bb2894696361a698abb7860b858f1272a1b6a7eb"
+  },
+  "selection": {
+    "tool": "aa seed-selection --profile ci --overlap-contract seed/contracts/peer-overlap.v1.json --overlap-peer site_a",
+    "app_commit": "2421d6d84180ec1d2c78600c428c73175872e127",
+    "report_schema": "artist-alley.ci-selection/v2",
+    "report_sha256": "0030762b12ab7fff848ebcd9510ce6a29fec736bd18f17c2054e58fac05c05a6",
+    "coverage_depth": 8,
+    "overlap_contract_sha256": "3af6b99c8468813f182a5b1e9d6e4c1907f497f2d3a020309ad36ad919d0fa7b",
+    "overlap_peer": "site_a",
+    "covered_dimensions": 131
+  },
+  "counts": {
+    "assets": 165,
+    "assets_full": 2005,
+    "posts": 91,
+    "posts_full": 863,
+    "video_assets": 9,
+    "video_assets_full": 92,
+    "payload_files": 207,
+    "payload_files_full": 2182,
+    "payload_bytes": 665709517,
+    "metadata_csv_rows": 68,
+    "metadata_csv_rows_full": 907,
+    "groups_csv_rows": 54,
+    "groups_csv_rows_full": 594,
+    "kenney_hq_replacements": 19,
+    "kenney_hq_replacements_full": 260
+  },
+  "added_license_notices": [
+    "3d/kenney-allin1/3d-assets-factory-kit/License.txt"
+  ],
+  "row_rules": {
+    "MANIFEST.json, posts.json": "selected rows in source order, each byte-identical to its source row",
+    "kenney-hq-replacements.json": "entries whose id is a selected asset, source order, byte-identical",
+    "metadata.csv": "header + legacy rows whose file_path is a selected asset's file, source order; every field byte-identical except group_size, recomputed as the number of retained rows with the same group_id",
+    "groups.csv": "header + the groups named by the kept metadata.csv rows, source order; every field byte-identical except asset_count, recomputed as the number of retained members (the metadata.csv rows with that group_id, which equal the retained MANIFEST rows whose metadata.group_id names it)",
+    "ATTRIBUTIONS.md": "generated summary of the included rows' license and attribution values, the caveats that apply to them, then the full edition's ATTRIBUTIONS.md as labelled source-edition background (headings demoted one level, text unchanged)",
+    "dataset-metadata.json": "the full edition's keys in the same order; title, subtitle, id and description rewritten to describe this subset; licenses, keywords, collaborators and data unchanged"
+  },
+  "removed": {
+    "assets": 1840,
+    "posts": 772,
+    "dangling_references": 0
+  },
+  "metadata_corrections": {
+    "corrected_from": {
+      "description": "the first build of this subset, whose descriptive files were copied unchanged from the full edition; identified by its SHA256SUMS",
+      "sha256sums_sha256": "64c5a4b27f25b366d3447e9a30daf444e4d845ed4ffef35932c5a0111b83e25e"
+    },
+    "metadata.csv": {
+      "field": "group_size",
+      "rows_changed": 38,
+      "changes": [
+        {
+          "asset_id": "ast-496dc5e8c5",
+          "group_id": "grp-05202",
+          "group_size": [
+            "3",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-c4daeae2fc",
+          "group_id": "grp-05268",
+          "group_size": [
+            "3",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-0c3d4e8a4a",
+          "group_id": "grp-05279",
+          "group_size": [
+            "3",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-20a88ac88d",
+          "group_id": "grp-05294",
+          "group_size": [
+            "3",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-59fbe82d81",
+          "group_id": "grp-05297",
+          "group_size": [
+            "3",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-b820fe3c65",
+          "group_id": "grp-05309",
+          "group_size": [
+            "3",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-fba6d5020b",
+          "group_id": "grp-05332",
+          "group_size": [
+            "6",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-afcc2c473f",
+          "group_id": "grp-05335",
+          "group_size": [
+            "6",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-ff65e80f92",
+          "group_id": "grp-05339",
+          "group_size": [
+            "6",
+            "2"
+          ]
+        },
+        {
+          "asset_id": "ast-a46abd9ec1",
+          "group_id": "grp-05339",
+          "group_size": [
+            "6",
+            "2"
+          ]
+        },
+        {
+          "asset_id": "ast-6d548755ee",
+          "group_id": "grp-05349",
+          "group_size": [
+            "6",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-9f8e4f7b64",
+          "group_id": "grp-05525",
+          "group_size": [
+            "4",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-3c3007d764",
+          "group_id": "grp-05538",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-93251c4aa9",
+          "group_id": "grp-05538",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-ddea03636b",
+          "group_id": "grp-05538",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-498fc8b525",
+          "group_id": "grp-05570",
+          "group_size": [
+            "4",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-c80761286e",
+          "group_id": "grp-05576",
+          "group_size": [
+            "4",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-510d7b2b7e",
+          "group_id": "grp-05578",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-b4f7723500",
+          "group_id": "grp-05578",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-de9d190025",
+          "group_id": "grp-05578",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-8d5eba6ca9",
+          "group_id": "grp-05579",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-85596af933",
+          "group_id": "grp-05579",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-d8811d4c27",
+          "group_id": "grp-05579",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-5643da9357",
+          "group_id": "grp-05581",
+          "group_size": [
+            "4",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-b4017fe51a",
+          "group_id": "grp-05582",
+          "group_size": [
+            "4",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-153cdeefc2",
+          "group_id": "grp-05583",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-c7faa71ab2",
+          "group_id": "grp-05583",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-1e602c126b",
+          "group_id": "grp-05583",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-27d197b589",
+          "group_id": "grp-05606",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-6dc553ba95",
+          "group_id": "grp-05606",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-60ba76419f",
+          "group_id": "grp-05606",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-a90579b0f3",
+          "group_id": "grp-05607",
+          "group_size": [
+            "4",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-6196196661",
+          "group_id": "grp-05608",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-5ae06e3900",
+          "group_id": "grp-05608",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-b713fb3f0a",
+          "group_id": "grp-05608",
+          "group_size": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "asset_id": "ast-a0643aaadd",
+          "group_id": "grp-05609",
+          "group_size": [
+            "4",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-abd4158a18",
+          "group_id": "grp-06517",
+          "group_size": [
+            "2",
+            "1"
+          ]
+        },
+        {
+          "asset_id": "ast-b65c86a2b6",
+          "group_id": "grp-06526",
+          "group_size": [
+            "2",
+            "1"
+          ]
+        }
+      ]
+    },
+    "groups.csv": {
+      "field": "asset_count",
+      "rows_changed": 25,
+      "changes": [
+        {
+          "group_id": "grp-05202",
+          "asset_count": [
+            "3",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-05268",
+          "asset_count": [
+            "3",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-05279",
+          "asset_count": [
+            "3",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-05294",
+          "asset_count": [
+            "3",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-05297",
+          "asset_count": [
+            "3",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-05309",
+          "asset_count": [
+            "3",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-05332",
+          "asset_count": [
+            "6",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-05335",
+          "asset_count": [
+            "6",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-05339",
+          "asset_count": [
+            "6",
+            "2"
+          ]
+        },
+        {
+          "group_id": "grp-05349",
+          "asset_count": [
+            "6",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-05525",
+          "asset_count": [
+            "4",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-05538",
+          "asset_count": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "group_id": "grp-05570",
+          "asset_count": [
+            "4",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-05576",
+          "asset_count": [
+            "4",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-05578",
+          "asset_count": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "group_id": "grp-05579",
+          "asset_count": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "group_id": "grp-05581",
+          "asset_count": [
+            "4",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-05582",
+          "asset_count": [
+            "4",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-05583",
+          "asset_count": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "group_id": "grp-05606",
+          "asset_count": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "group_id": "grp-05607",
+          "asset_count": [
+            "4",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-05608",
+          "asset_count": [
+            "4",
+            "3"
+          ]
+        },
+        {
+          "group_id": "grp-05609",
+          "asset_count": [
+            "4",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-06517",
+          "asset_count": [
+            "2",
+            "1"
+          ]
+        },
+        {
+          "group_id": "grp-06526",
+          "asset_count": [
+            "2",
+            "1"
+          ]
+        }
+      ]
+    },
+    "dataset-metadata.json": {
+      "keys_changed": [
+        "title",
+        "subtitle",
+        "id",
+        "description"
+      ],
+      "source_sha256": "26a0f25518dcfd1d3a3dbd208def430065722242e9cac6ade74adae889857746"
+    },
+    "ATTRIBUTIONS.md": {
+      "source_sha256": "740b796b1177043d7de4d99fe2e9d01e1843d6a9553d8e399449231a27815468",
+      "source_kept_as": "source-edition background"
+    }
+  },
+  "contains": {
+    "asset_types": {
+      "3d": 41,
+      "audio": 9,
+      "document": 14,
+      "font": 8,
+      "image": 84,
+      "video": 9
+    },
+    "video_assets": [
+      "videos/internet/fantastic-contraption-gameplay.webm",
+      "videos/internet/sintel-2010-1080p.mkv",
+      "videos/internet/sintel-trailer-480p.mp4",
+      "videos/internet/tears-of-steel-720p.mov",
+      "videos/internet/tux-racer-ingos-speedway.webm",
+      "videos/nps/grca/grca-hd16-08.mp4",
+      "videos/torrent/big-buck-bunny-720p-surround.avi",
+      "videos/torrent/sintel-documentary.avi",
+      "videos/torrent/sintel-full-film-512kb.mp4"
+    ],
+    "mature_assets": 6,
+    "nps_clips": [
+      "videos/nps/grca/grca-hd16-08.mp4"
+    ],
+    "replacement_rows": [
+      "4b4a3022-7c20-f978-2017-e43dca00870a",
+      "e2b6f88a-fd01-e6ce-4d4b-ef31e791fa52"
+    ],
+    "license_labels": {
+      "CC-BY 2.0": 1,
+      "CC-BY 3.0": 6,
+      "CC-BY 4.0": 1,
+      "CC-BY-SA 3.0": 1,
+      "CC-BY-SA 4.0": 3,
+      "CC0": 4,
+      "CC0 1.0": 86,
+      "Internal": 40,
+      "MIT": 1,
+      "Public Domain": 15,
+      "Public Domain (NPS collection page statement)": 1,
+      "Studio-Exclusive": 6
+    }
+  },
+  "repository_files_outside_sha256sums": [
+    "README.md",
+    ".gitignore"
+  ]
+}
