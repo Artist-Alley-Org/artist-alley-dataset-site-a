@@ -41,16 +41,17 @@ the seed dataset on Kaggle.
 ## Contents
 
 The snapshot is a relative-path copy of the local `site_a` source, minus the
-Sponza exclusion below: 2,187 files, 2,714,664,111 bytes.
+Sponza exclusion and with the media replacement below: 2,189 files, 2,513,030,786 bytes.
 
 - 7 top-level metadata and attribution files, tracked in Git:
   `ATTRIBUTIONS.md`, `MANIFEST.json`, `dataset-metadata.json`, `groups.csv`,
   `kenney-hq-replacements.json`, `metadata.csv`, `posts.json`.
-- 2,180 data files (2,709,016,036 bytes) under `3d/` (764), `audio/` (200),
+- 2,182 data files (2,507,224,795 bytes) under `3d/` (766), `audio/` (200),
   `documents/` (18), `fonts/` (33), `images/` (1,073) and `videos/` (92).
   These are local only and go into the release archives.
 - `MANIFEST.json` has 2,005 asset rows; every `file_path` is present.
-  The other 175 data files are non-manifest files under `3d/`, including model companions.
+  The other 177 data files are non-manifest files under `3d/`, including model
+  companions and one license notice (`3d/kenney-allin1/3d-assets-factory-kit/License.txt`).
 - `posts.json` has 863 posts.
 
 ### Excluded from the public release: Sponza
@@ -74,11 +75,35 @@ manifest asset, and no other file under `3d/` names any of them.
 The previous metadata commit keeps the earlier listing, so the exclusion can
 be reversed.
 
+### Replaced in the local snapshot: Pexels videos and 2CylinderEngine
+
+By owner decision (issue #1514), the 75 Pexels videos and the
+2CylinderEngine model were removed from this local working copy and
+replaced one-to-one, so the dataset keeps 2,005 assets and 863 posts with
+the same IDs and relationships:
+
+- **75 videos** now come from U.S. National Park Service B-roll at
+  `videos/nps/<park>/<item-id>.mp4` (63 Grand Canyon, 7 Death Valley,
+  4 Joshua Tree, 1 Acadia). Their NPS collection pages state the footage
+  is public domain; NPS media pages also say NPS multimedia should not be
+  presumed public domain. The label is provisional and is not rights
+  clearance. See `ATTRIBUTIONS.md`.
+- **2CylinderEngine** is replaced by `machine.glb` from Kenney Factory
+  Kit 3.0 (CC0), with the `colormap.png` texture it references and the
+  kit's `License.txt`, under `3d/kenney-allin1/3d-assets-factory-kit/`.
+- Each replaced record keeps its asset ID, posts and fixture fields, and
+  records the file it replaced (path, size and SHA-256) under
+  `metadata.replaced` and in `replaced_source_path`. The removed bytes are
+  not part of this snapshot; they remain in the original local source and
+  are not to be copied into a release payload.
+- This replacement is a provisional local staging selection. No archive
+  has been built from it and nothing has been published.
+
 Excluded from the snapshot: 13 `*.bak` backup files and one `Thumbs.db`
 thumbnail cache. `.gitignore` keeps them out.
 
-`SHA256SUMS` lists the SHA-256 of all 2,187 snapshot files, sorted by path:
-the 7 tracked metadata files and the 2,180 data files. It does not cover
+`SHA256SUMS` lists the SHA-256 of all 2,189 snapshot files, sorted by path:
+the 7 tracked metadata files and the 2,182 data files. It does not cover
 `.gitignore`, `README.md` or itself. With the data present (this local copy,
 or a clone plus the extracted release archive), check it from this directory
 with:
