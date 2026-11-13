@@ -1,6 +1,6 @@
 # Artist Alley dataset: site_a (metadata repository)
 
-**Status: LOCAL STAGING ONLY. A metadata-only local commit exists. No
+**Status: LOCAL STAGING ONLY. Local metadata-only commits exist. No
 remote, nothing published.**
 
 This repository holds the metadata for the public `site_a` demo seed dataset
@@ -23,10 +23,14 @@ repository. The planned home is the Artist-Alley-Org GitHub organization.
 - **A clone alone cannot run `sha256sum -c SHA256SUMS`:** the data files it
   lists are only present after the matching release archive has been
   downloaded and extracted.
-- **No approved archive yet:** an older private local candidate archive was
-  built before the Sponza exclusion below. It still contains Sponza, is
-  superseded by that exclusion and must not be uploaded. No new archive has
-  been built or approved, and nothing has been published.
+- **No approved archive yet:** a private local candidate archive of the
+  current snapshot (rev115) has been built and verified: 2 parts of
+  1,899,999,999 and 530,808,111 bytes, `release.json` SHA-256
+  `84996745cda978476dacfe7cf8ae1030d0d0d21faa7f1593e3aa713e0c092da5`. It
+  has not been uploaded and is not approved for public release. Two older
+  private candidates (one still containing Sponza, one from before the media
+  replacement) are obsolete and must not be uploaded. Nothing has been
+  published.
 
 ## What `site_a` is
 
@@ -34,7 +38,10 @@ ADR 0058 (`docs/adr/0058-demo-seed-dataset.md` in the application repository)
 makes `site_a` (Layer A) the public-safe tier of the demo seed. Its 2026-10-05
 amendment names the per-asset `license` and `attribution` in `MANIFEST.json`,
 together with `ATTRIBUTIONS.md`, as the authoritative licensing and attribution
-record. Public redistribution must honour the terms of every included source.
+record. That designation predates the 2026-11 media replacement below and does
+not clear it: the 75 NPS clips are provisional, and the Factory Kit model needs
+its own review. Public redistribution must honour the terms of every included
+source.
 The application repository's `RELEASING.md` documents earlier publication of
 the seed dataset on Kaggle.
 
@@ -68,9 +75,11 @@ manifest asset, and no other file under `3d/` names any of them.
   three other assets, and no post was deleted.
 - `ATTRIBUTIONS.md` no longer lists Sponza.
 - `SHA256SUMS` no longer lists the 71 files.
-- The 71 files remain in this local working copy, ignored by Git like every
-  other data file, but they are not part of the snapshot and must be left out
-  of any future release archive.
+- On 2026-11-13 the 71 files were removed from this local working copy,
+  after each matched the mounted original byte for byte. A private
+  quarantine copy and the mounted original keep the exclusion reversible.
+  They are not part of the snapshot and must be left out of any release
+  archive.
 
 The previous metadata commit keeps the earlier listing, so the exclusion can
 be reversed.
@@ -96,8 +105,9 @@ the same IDs and relationships:
   `metadata.replaced` and in `replaced_source_path`. The removed bytes are
   not part of this snapshot; they remain in the original local source and
   are not to be copied into a release payload.
-- This replacement is a provisional local staging selection. No archive
-  has been built from it and nothing has been published.
+- This replacement is a provisional local staging selection. A private
+  local candidate archive has been built and verified from it (see "No
+  approved archive yet" above); nothing has been uploaded or published.
 
 Excluded from the snapshot: 13 `*.bak` backup files and one `Thumbs.db`
 thumbnail cache. `.gitignore` keeps them out.
@@ -114,14 +124,16 @@ sha256sum -c SHA256SUMS
 
 ## Not done yet
 
-- **Release archives:** no approved archive has been built, and none has
-  been published. Each GitHub Release asset must
-  be under the currently documented 2 GiB per-file limit. Compression has not
-  been measured; any archive at or above that limit must be split before
-  upload.
+- **Release archives:** a private candidate has been built and verified
+  locally (rev115): one gzip stream of 2,430,808,110 bytes, split into 2
+  parts of 1,899,999,999 and 530,808,111 bytes, each under the currently
+  documented 2 GiB per-file limit for a GitHub Release asset. It has not
+  been uploaded or approved, and none has been published.
 - **Rights and release gates remain open.** The new CI-release ledger and
   release manifest have not yet bound these frozen bytes to the existing
-  evidence above. That is a format migration, not a new rights review.
+  evidence above. For the pre-replacement files that is a format migration;
+  the 75 provisional NPS clips and the Factory Kit model still need their own
+  rights review.
 - **Remote:** this repository has no remote yet.
 - No CI job, profile or seed reads this repository yet.
 
