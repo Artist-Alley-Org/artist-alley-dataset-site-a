@@ -1,23 +1,25 @@
 # Artist Alley dataset: site_a (metadata repository)
 
-**Status: LOCAL STAGING ONLY. Local metadata-only commits exist. No
-remote, nothing published.**
+**Status: public metadata repository. No binary archive has been released
+yet, and nothing here is rights clearance.**
 
 This repository holds the metadata for the public `site_a` demo seed dataset
 for issue #1514 (v0.11.1). It is kept separate from the artist-alley
 application repository: dataset bytes do not live in the application
-repository. The planned home is the Artist-Alley-Org GitHub organization.
+repository. Its home is the Artist-Alley-Org GitHub organization.
 
 ## What Git holds, and where the bytes go
 
 - **Git holds metadata only:** the seven top-level files listed below, this
   README, `SHA256SUMS` and `.gitignore`. No binary payload and no Git LFS
   pointers are tracked, so a clone contains no dataset bytes.
-- **The binary snapshot is local only.** The six data directories (`3d/`,
-  `audio/`, `documents/`, `fonts/`, `images/`, `videos/`) are present in this
-  local working copy for building release archives, but are not tracked.
-  `.gitignore` ignores them so they cannot be staged by accident.
-- **Consumers get the bytes from versioned GitHub Release archives.** Before
+- **The binary snapshot is not in this repository.** The six data directories
+  (`3d/`, `audio/`, `documents/`, `fonts/`, `images/`, `videos/`) exist only in
+  the maintainers' local working copy, where they are used to build release
+  archives. They are not tracked, and `.gitignore` ignores them so they cannot
+  be staged by accident.
+- **Consumers will get the bytes from versioned GitHub Release archives**
+  (none released yet). Before
   extracting and seeding, a consumer verifies the archive's checksum, then
   `SHA256SUMS` and `MANIFEST.json`.
 - **A clone alone cannot run `sha256sum -c SHA256SUMS`:** the data files it
@@ -75,7 +77,7 @@ manifest asset, and no other file under `3d/` names any of them.
   three other assets, and no post was deleted.
 - `ATTRIBUTIONS.md` no longer lists Sponza.
 - `SHA256SUMS` no longer lists the 71 files.
-- On 2026-11-13 the 71 files were removed from this local working copy,
+- On 2026-11-13 the 71 files were removed from the maintainers' local working copy,
   after each matched the mounted original byte for byte. A private
   quarantine copy and the mounted original keep the exclusion reversible.
   They are not part of the snapshot and must be left out of any release
@@ -87,7 +89,7 @@ be reversed.
 ### Replaced in the local snapshot: Pexels videos and 2CylinderEngine
 
 By owner decision (issue #1514), the 75 Pexels videos and the
-2CylinderEngine model were removed from this local working copy and
+2CylinderEngine model were removed from the maintainers' local working copy and
 replaced one-to-one, so the dataset keeps 2,005 assets and 863 posts with
 the same IDs and relationships:
 
@@ -114,8 +116,8 @@ thumbnail cache. `.gitignore` keeps them out.
 
 `SHA256SUMS` lists the SHA-256 of all 2,189 snapshot files, sorted by path:
 the 7 tracked metadata files and the 2,182 data files. It does not cover
-`.gitignore`, `README.md` or itself. With the data present (this local copy,
-or a clone plus the extracted release archive), check it from this directory
+`.gitignore`, `README.md` or itself. With the data present (the maintainers'
+local copy, or a clone plus the extracted release archive), check it from this directory
 with:
 
 ```
@@ -134,7 +136,8 @@ sha256sum -c SHA256SUMS
   evidence above. For the pre-replacement files that is a format migration;
   the 75 provisional NPS clips and the Factory Kit model still need their own
   rights review.
-- **Remote:** this repository has no remote yet.
+- **Binary release:** no GitHub Release archive has been published, so a clone
+  cannot yet be seeded or checked with `sha256sum -c SHA256SUMS`.
 - No CI job, profile or seed reads this repository yet.
 
 The application repository's `seed/contracts/peer-overlap.v1.json` names the
