@@ -1,7 +1,7 @@
 # Artist Alley dataset: site_a (metadata repository)
 
-**Status: public metadata repository. No binary archive has been released
-yet, and nothing here is rights clearance.**
+**Status: public metadata repository. Edition `v2026.11.01` is published as a
+provisional GitHub prerelease, and nothing here is rights clearance.**
 
 This repository holds the metadata for the public `site_a` demo seed dataset
 for issue #1514 (v0.11.1). It is kept separate from the artist-alley
@@ -18,21 +18,61 @@ repository. Its home is the Artist-Alley-Org GitHub organization.
   the maintainers' local working copy, where they are used to build release
   archives. They are not tracked, and `.gitignore` ignores them so they cannot
   be staged by accident.
-- **Consumers will get the bytes from versioned GitHub Release archives**
-  (none released yet). Before
+- **Consumers get the bytes from versioned GitHub Release archives.** Before
   extracting and seeding, a consumer verifies the archive's checksum, then
   `SHA256SUMS` and `MANIFEST.json`.
 - **A clone alone cannot run `sha256sum -c SHA256SUMS`:** the data files it
   lists are only present after the matching release archive has been
   downloaded and extracted.
-- **No approved archive yet:** a private local candidate archive of the
-  current snapshot (rev115) has been built and verified: 2 parts of
-  1,899,999,999 and 530,808,111 bytes, `release.json` SHA-256
-  `84996745cda978476dacfe7cf8ae1030d0d0d21faa7f1593e3aa713e0c092da5`. It
-  has not been uploaded and is not approved for public release. Two older
-  private candidates (one still containing Sponza, one from before the media
-  replacement) are obsolete and must not be uploaded. Nothing has been
-  published.
+
+## Published editions
+
+Both editions are GitHub prereleases. The project owner reviewed the
+recorded source evidence and chose to publish them as provisional; that is
+not rights clearance (see "Not done yet"). A tag alone is not an integrity
+pin: always check the `release.json` SHA-256.
+
+- **Full edition
+  [`v2026.11.01`](https://github.com/Artist-Alley-Org/artist-alley-dataset-site-a/releases/tag/v2026.11.01):**
+  the tag resolves to metadata commit
+  `62ebfa6a642f96ceda829ffdad42601d4d9fe525`, and `release.json` has SHA-256
+  `84996745cda978476dacfe7cf8ae1030d0d0d21faa7f1593e3aa713e0c092da5`. It pins
+  `SHA256SUMS`, every metadata file and the two payload parts,
+  `site_a-payload.tar.gz.part0000` (1,899,999,999 bytes) and
+  `site_a-payload.tar.gz.part0001` (530,808,111 bytes): one gzip stream of
+  2,430,808,110 bytes, split so each asset stays under GitHub's 2 GiB limit.
+- **CI subset edition
+  [`v2026.11.01-sm`](https://github.com/Artist-Alley-Org/artist-alley-dataset-site-a/releases/tag/v2026.11.01-sm):**
+  a byte-identical subset of the full edition for pull-request CI (165 assets,
+  91 posts, 207 payload files in one part). Its tag is on its own branch,
+  `edition/v2026.11.01-sm`, at metadata commit
+  `3f078b1500ce066d5df04adeba11d38fc8ad7277`, and its `release.json` has
+  SHA-256 `c6838e5020b1bc56f048c0602c2021c1c840e3e3ddf236827eb7358b521a503f`.
+  The README at that tag describes it.
+- **Asset names:** both editions use the original names, `release.json` and
+  `site_a-payload.tar.gz.partNNNN`, and they will not change. Later editions
+  will carry the site and tag in every asset name.
+- **Download and verify:** in a checkout of the edition's tag (not a later
+  `main` commit), check `release.json` against its SHA-256 and each part
+  against its `sha256` and `bytes` in `release.json`. Then run
+  `cat site_a-payload.tar.gz.part0000 site_a-payload.tar.gz.part0001 | tar -xzf -`
+  at the repository root for the full edition, and `sha256sum -c SHA256SUMS`
+  (2,189 entries). The Artist Alley tool `seed/scripts/release_dataset.py verify`
+  performs these checks, plus member, path and link checks.
+
+## How Artist Alley CI uses it
+
+As of 2026-11-14, the Artist Alley application pins both editions in
+`seed/contracts/ci-datasets.v1.json` by repository, tag, metadata commit and
+`release.json` SHA-256, and its UI workflows fetch them anonymously on
+GitHub-hosted runners:
+
+- The scheduled UI nightly downloads and verifies the full `v2026.11.01`
+  edition, together with `site_b`, and seeds its CI selection from it for the
+  federation and shell scenarios.
+- The pull-request UI workflow, which also runs on pushes to the
+  application's `main` and `dev` branches, downloads only the small
+  `v2026.11.01-sm` edition and seeds the same CI selection from it.
 
 ## What `site_a` is
 
@@ -107,9 +147,8 @@ the same IDs and relationships:
   `metadata.replaced` and in `replaced_source_path`. The removed bytes are
   not part of this snapshot; they remain in the original local source and
   are not to be copied into a release payload.
-- This replacement is a provisional local staging selection. A private
-  local candidate archive has been built and verified from it (see "No
-  approved archive yet" above); nothing has been uploaded or published.
+- The published `v2026.11.01` edition contains these replacements. Their
+  rights labels remain provisional (see "Not done yet").
 
 Excluded from the snapshot: 13 `*.bak` backup files and one `Thumbs.db`
 thumbnail cache. `.gitignore` keeps them out.
@@ -126,19 +165,12 @@ sha256sum -c SHA256SUMS
 
 ## Not done yet
 
-- **Release archives:** a private candidate has been built and verified
-  locally (rev115): one gzip stream of 2,430,808,110 bytes, split into 2
-  parts of 1,899,999,999 and 530,808,111 bytes, each under the currently
-  documented 2 GiB per-file limit for a GitHub Release asset. It has not
-  been uploaded or approved, and none has been published.
-- **Rights and release gates remain open.** The new CI-release ledger and
-  release manifest have not yet bound these frozen bytes to the existing
-  evidence above. For the pre-replacement files that is a format migration;
-  the 75 provisional NPS clips and the Factory Kit model still need their own
-  rights review.
-- **Binary release:** no GitHub Release archive has been published, so a clone
-  cannot yet be seeded or checked with `sha256sum -c SHA256SUMS`.
-- No CI job, profile or seed reads this repository yet.
+- **Rights review:** publication is not rights clearance. The owner
+  published `v2026.11.01` as a provisional prerelease without completing the
+  per-file review: the rows of the CI-release ledger for these frozen bytes
+  are still pending review.
+- **Provisional sources:** the 75 NPS clips and the Factory Kit model still
+  need their own rights review.
 
 The application repository's `seed/contracts/peer-overlap.v1.json` names the
 two `site_a` files that the public `site_b` overlap anchors must byte-match.
